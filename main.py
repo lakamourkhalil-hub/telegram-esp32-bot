@@ -180,6 +180,18 @@ def run_http():
 # -----------------------------
 # Main
 # -----------------------------
+def run_bot():
+    while True:
+        try:
+            print("Bot started polling...")
+            bot.infinity_polling(skip_pending=True)
+        except Exception as e:
+            print("Bot crashed:", e)
+            time.sleep(5)
+
+# مهم لـ Render
+threading.Thread(target=run_bot, daemon=True).start()
+
+# Flask server
 if __name__ == "__main__":
-    threading.Thread(target=run_http).start()
-    bot.infinity_polling()
+    app.run(host="0.0.0.0", port=10000)
