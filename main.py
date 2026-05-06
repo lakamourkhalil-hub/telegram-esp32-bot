@@ -23,7 +23,7 @@ if not GEMINI_API_KEY:
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-1.0-pro-vision")
+model = genai.GenerativeModel("models/gemini-1.5-flash")
 
 app = Flask(__name__)
 
